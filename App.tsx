@@ -10,6 +10,7 @@ import {
 
 } from '@expo-google-fonts/roboto'
 import AppLoading from 'expo-app-loading';
+import { AuthProvider } from './src/hooks/auth';
 
 export default function App() {
 
@@ -20,10 +21,14 @@ export default function App() {
   if (!fontsLoaded) return <AppLoading />
 
   return (
-    <>
+    <AuthProvider>
       <Home />
-      <StatusBar style="light"/>
-    </>
+      <StatusBar
+        style="light"
+        translucent
+        backgroundColor='transparent' />
+    </AuthProvider>
+
   )
 
 }
